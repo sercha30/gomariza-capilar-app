@@ -1,0 +1,8 @@
+{
+    "nombre":"Sergio",
+    "apellidos":"Chamorro García",
+    "email":"sergio@email.com",
+    "password":"1234",
+    "password2":"1234",
+    "fechaNacimiento":"1995-12-30T11:44:44.797"
+}

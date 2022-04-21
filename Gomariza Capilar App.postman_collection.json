@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "fd900059-1b40-4bf3-a255-7e1bff53bdcd",
+		"name": "Gomariza Capilar App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro/Login",
+			"item": [
+				{
+					"name": "Nuevo cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "usuario",
+									"type": "file",
+									"src": "/C:/Users/sergi/Desktop/gomariza-capilar-backend/gomarizacapilarapp/src/main/resources/json/usuarios/usuarioCliente.json"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/C:/Users/sergi/Desktop/gomariza-capilar-backend/gomarizacapilarapp/src/main/resources/assets/fotosPerfil/fotoPerfil1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiBaseURL}}/auth/register/cliente",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login cliente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\",jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"sergio@email.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiBaseURL}}/auth/login",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
