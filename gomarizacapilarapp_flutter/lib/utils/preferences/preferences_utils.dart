@@ -26,7 +26,7 @@ class PreferenceUtils {
       await _prefs.setStringList(key, value);
 
   //gets
-  static bool getBool(String key, {bool defValue = false}) =>
+  static bool getBool(String key, {bool defValue = true}) =>
       _prefs.getBool(key) ?? defValue;
 
   static double? getDouble(String key) => _prefs.getDouble(key);

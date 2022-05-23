@@ -1,0 +1,8 @@
+{
+    "nombre":"Pedro",
+    "apellidos":"Villanueva Mariscal",
+    "email":"pedro@email.com",
+    "password":"1234",
+    "password2":"1234",
+    "fechaNacimiento":"1978-05-11T11:44:44.797"
+}

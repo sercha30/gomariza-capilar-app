@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter_gomariza_capilar_app/models/auth/login/login_response.dart';
 import 'package:flutter_gomariza_capilar_app/models/auth/login/login_dto.dart';
+import 'package:flutter_gomariza_capilar_app/models/auth/me/me_response.dart';
 import 'package:flutter_gomariza_capilar_app/resources/repositories/auth_repository/auth_repository.dart';
 import 'package:flutter_gomariza_capilar_app/utils/constants/constants.dart';
+import 'package:flutter_gomariza_capilar_app/utils/preferences/preferences_utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 
@@ -36,7 +38,7 @@ class AuthRepositoryImpl extends AuthRepository {
       'Content-Type': 'multipart/form-data',
     };
 
-    var uri = Uri.parse(Constants.API_BASE_URL + 'auth/register/cliente');
+    var uri = Uri.parse(Constants.API_BASE_URL + '/auth/register/cliente');
 
     var body = jsonEncode({
       'nombre': registerDto.nombre,
@@ -56,11 +58,28 @@ class AuthRepositoryImpl extends AuthRepository {
 
     final response = await request.send();
 
-    if (response.statusCode == 201) {
+    if (response.statusCode == Constants.RESPONSE_CREATED) {
       return RegisterResponse.fromJson(
           jsonDecode(await response.stream.bytesToString()));
     } else {
       throw Exception('Failed to register');
+    }
+  }
+
+  @override
+  Future<MeResponse> getLoggedUser() async {
+    final headers = {
+      'Authorization':
+          'Bearer ${PreferenceUtils.getString(Constants.BEARER_TOKEN)}'
+    };
+
+    final response = await http
+        .get(Uri.parse(Constants.API_BASE_URL + '/auth/me'), headers: headers);
+
+    if (response.statusCode == Constants.RESPONSE_OK) {
+      return MeResponse.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('Failed to get logged user');
     }
   }
 }

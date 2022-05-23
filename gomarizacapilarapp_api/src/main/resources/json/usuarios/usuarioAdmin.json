@@ -1,0 +1,8 @@
+{
+    "nombre":"Juan",
+    "apellidos":"López Bermúdez",
+    "email":"juan@email.com",
+    "password":"1234",
+    "password2":"1234",
+    "fechaNacimiento":"1990-01-05T11:44:44.797"
+}

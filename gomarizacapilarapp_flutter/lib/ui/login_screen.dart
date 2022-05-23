@@ -28,6 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
   late LocalAuthentication _localAuthentication;
   bool _isBiometricAvailable = false;
 
+  bool showPassword = true;
+
   @override
   void initState() {
     super.initState();
@@ -158,17 +160,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 20.0),
                     child: TextFormField(
-                      obscureText: true,
+                      obscureText: showPassword,
                       controller: passwordController,
                       decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
                           contentPadding:
                               const EdgeInsets.all(CustomStyles.inputPadding),
-                          suffixIcon: const Icon(
-                            Icons.visibility,
-                            color: CustomStyles.primaryColor,
-                          ),
+                          suffixIcon: IconButton(
+                              icon: Icon(
+                                showPassword
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: CustomStyles.primaryColor,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  showPassword = !showPassword;
+                                });
+                              }),
                           hintText: 'Introduzca su contraseña',
                           border: OutlineInputBorder(
                               borderSide: const BorderSide(
