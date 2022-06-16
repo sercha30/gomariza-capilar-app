@@ -1,0 +1,28 @@
+<mat-toolbar>
+  <button mat-button>
+    <img
+      src="../../../../assets/images/gomariza-logo-sin-texto.png"
+      alt="Volver a Inicio"
+      width="75%"
+    />
+  </button>
+  <button mat-button>CITAS</button>
+  <button mat-button>SERVICIOS</button>
+  <button mat-button>USUARIOS</button>
+  <button mat-button>LOCALIZACIONES</button>
+  <span class="example-spacer"></span>
+  <div class="right-container">
+    <span>
+      <h5>{{ loggedUser.nombre }} {{ loggedUser.apellidos }}</h5>
+    </span>
+    <img
+      [src]="loggedUser.foto"
+      alt="Usuario"
+      style="border-radius: 100px"
+      width="10%"
+    />
+    <button mat-icon-button>
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

@@ -36,7 +36,7 @@ public class Cita implements Serializable {
     )
     private UUID id;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "localizacion_id", foreignKey = @ForeignKey(name = "FK_CITA_LOCALIZACION"))
     private Localizacion localizacion;
 

@@ -4,6 +4,7 @@ import com.chamorrogarciasergio.pdam.gomarizacapilarapp.usuario.model.Usuario;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
+import org.hibernate.annotations.Type;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -41,6 +42,10 @@ public class Servicio implements Serializable {
     private String precio;
 
     private String foto;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    private String descripcion;
 
     @ManyToMany()
     @JoinTable(joinColumns = @JoinColumn(name = "servicio_id",

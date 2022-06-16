@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -49,6 +51,9 @@ dependencies:
   syncfusion_flutter_calendar: ^20.1.56
   progress_indicators: ^1.0.0
   time_machine: ^0.9.17
+  syncfusion_localizations: ^20.1.58
+  url_launcher: ^6.1.2
+  syncfusion_flutter_datepicker: ^20.1.60
 
 dev_dependencies:
   flutter_test:

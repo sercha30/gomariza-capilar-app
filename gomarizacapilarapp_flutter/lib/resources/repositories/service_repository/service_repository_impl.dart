@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_gomariza_capilar_app/models/service/service_detail_response.dart';
 import 'package:flutter_gomariza_capilar_app/models/service/service_list_response.dart';
 import 'package:flutter_gomariza_capilar_app/resources/repositories/service_repository/service_repository.dart';
 
@@ -25,6 +26,19 @@ class ServiceRepositoryImpl extends ServiceRepository {
           .toList();
     } else {
       throw Exception('Failed to get service list');
+    }
+  }
+
+  @override
+  Future<ServiceDetailResponse> getServiceDetail(String idService) async {
+    final response = await http.get(
+        Uri.parse(Constants.API_BASE_URL + '/servicio/' + idService),
+        headers: headers);
+
+    if (response.statusCode == Constants.RESPONSE_OK) {
+      return ServiceDetailResponse.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to get service detail');
     }
   }
 }

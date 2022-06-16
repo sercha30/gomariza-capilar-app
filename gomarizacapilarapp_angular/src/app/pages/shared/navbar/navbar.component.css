@@ -1,0 +1,14 @@
+mat-toolbar {
+  background-color: #2196F3;
+  height: 8%;
+  color: white;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.right-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}

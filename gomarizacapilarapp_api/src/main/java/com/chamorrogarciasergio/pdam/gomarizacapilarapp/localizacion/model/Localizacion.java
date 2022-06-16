@@ -32,4 +32,8 @@ public class Localizacion implements Serializable {
             }
     )
     private UUID id;
+
+    private String lat;
+
+    private String lng;
 }

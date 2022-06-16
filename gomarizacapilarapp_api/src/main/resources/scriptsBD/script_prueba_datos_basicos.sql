@@ -1,10 +1,14 @@
 SET SCHEMA 'public';
 
-INSERT INTO localizacion VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0001');
+INSERT INTO localizacion VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0001', '37.3803521', '-6.0093309');
 
-INSERT INTO servicio VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0002','00:30:00','https://www.lavanguardia.com/files/image_449_220/uploads/2021/11/09/618a537ea2a9e.jpeg','Cirugia capilar','60€/sesion');
+INSERT INTO servicio VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0002', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','03:00:00','https://www.lavanguardia.com/files/image_449_220/uploads/2021/11/09/618a537ea2a9e.jpeg','Cirugia capilar','60€/sesion');
+INSERT INTO servicio VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0005', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','02:00:00','https://manmedicalinstitute.com/wp-content/uploads/2021/10/mesoterapia-capilar-768x527.jpg','Mesoterapia capilar','80€/sesion');
+INSERT INTO servicio VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0006', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','01:00:00','https://jaldun.com/wp-content/uploads/2016/09/Consulta-ZEN-Expresi%C3%B3n-David-Mart%C3%ADnez.jpg','Consulta','20€/sesion');
 
-INSERT INTO cita VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0003','2022-06-15 11:30:00',null,current_timestamp,false,'a9fe0f58-80eb-175f-8180-eba1d75f0001','a9fe0f58-80eb-175f-8180-eba1d75f0002','a9fe0f58-80f1-1a14-8180-f182848b0000');
-INSERT INTO cita VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0004','2022-06-30 10:00:00',null,current_timestamp,false,'a9fe0f58-80eb-175f-8180-eba1d75f0001','a9fe0f58-80eb-175f-8180-eba1d75f0002','a9fe0f58-80f1-1a14-8180-f182848b0000');
+INSERT INTO cita VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0003','2022-06-15 08:00:00',null,current_timestamp,false,'a9fe0f58-80eb-175f-8180-eba1d75f0001','a9fe0f58-80eb-175f-8180-eba1d75f0002','ac1e9001-8168-106b-8181-68109f530000');
+INSERT INTO cita VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0004','2022-06-30 11:00:00',null,current_timestamp,false,'a9fe0f58-80eb-175f-8180-eba1d75f0001','a9fe0f58-80eb-175f-8180-eba1d75f0002','ac1e9001-8168-106b-8181-68109f530000');
 
-INSERT INTO asignaciones VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0002','a9fe0f58-80f1-1a14-8180-f192ec5f0001');
+INSERT INTO asignaciones VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0002','ac1e9001-8168-106b-8181-6810e2c70001');
+INSERT INTO asignaciones VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0005','ac1e9001-8168-106b-8181-6810e2c70001');
+INSERT INTO asignaciones VALUES ('a9fe0f58-80eb-175f-8180-eba1d75f0006','ac1e9001-8168-106b-8181-6810e2c70001');

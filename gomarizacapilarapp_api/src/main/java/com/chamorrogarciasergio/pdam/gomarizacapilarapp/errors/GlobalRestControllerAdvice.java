@@ -5,9 +5,11 @@ import com.chamorrogarciasergio.pdam.gomarizacapilarapp.errors.exceptions.entity
 import com.chamorrogarciasergio.pdam.gomarizacapilarapp.errors.exceptions.entity.SingleEntityNotFoundException;
 import com.chamorrogarciasergio.pdam.gomarizacapilarapp.errors.exceptions.storage.StorageException;
 import com.chamorrogarciasergio.pdam.gomarizacapilarapp.errors.model.ApiError;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -35,6 +37,16 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers,
                                                              HttpStatus status, WebRequest request) {
         return buildApiError(ex, request, status);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return buildApiError(ex, request, status);
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleTypeMismatch(TypeMismatchException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+      return buildApiError(ex, request, status);
     }
 
     private ResponseEntity<Object> buildApiError(Exception ex, WebRequest request, HttpStatus status) {

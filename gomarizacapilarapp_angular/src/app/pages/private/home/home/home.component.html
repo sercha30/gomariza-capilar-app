@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="wrapper">
+    <mat-card (click)="onClickRedirect('appointment')">
+      <mat-card-content>
+        <mat-icon>event_available</mat-icon>
+      </mat-card-content>
+      <mat-card-footer>
+        <h1>CITAS</h1>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card (click)="onClickRedirect('service')">
+      <mat-card-content>
+        <mat-icon>info</mat-icon>
+      </mat-card-content>
+      <mat-card-footer>
+        <h1>SERVICIOS</h1>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card (click)="onClickRedirect('user')">
+      <mat-card-content>
+        <mat-icon>account_circle</mat-icon>
+      </mat-card-content>
+      <mat-card-footer>
+        <h1>USUARIOS</h1>
+      </mat-card-footer>
+    </mat-card>
+    <mat-card (click)="onClickRedirect('location')">
+      <mat-card-content>
+        <mat-icon>place</mat-icon>
+      </mat-card-content>
+      <mat-card-footer>
+        <h1>LOCALIZACIONES</h1>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

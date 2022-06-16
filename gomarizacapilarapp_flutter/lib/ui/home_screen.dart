@@ -13,6 +13,8 @@ import 'package:flutter_gomariza_capilar_app/resources/repositories/auth_reposit
 import 'package:flutter_gomariza_capilar_app/resources/repositories/auth_repository/auth_repository_impl.dart';
 import 'package:flutter_gomariza_capilar_app/resources/repositories/service_repository/service_repository.dart';
 import 'package:flutter_gomariza_capilar_app/styles.dart';
+import 'package:flutter_gomariza_capilar_app/ui/service_detail_screen.dart';
+import 'package:flutter_gomariza_capilar_app/utils/utf_8_decoder/utf_8_decoder.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:progress_indicators/progress_indicators.dart';
@@ -131,7 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     textAlign: TextAlign.start,
                   ),
                   Text(
-                    meResponse.nombre + ' ' + meResponse.apellidos,
+                    Utf8Decoder.utf8Decode(meResponse.nombre) +
+                        ' ' +
+                        Utf8Decoder.utf8Decode(meResponse.apellidos),
                     style: CustomStyles.welcomeText,
                     textAlign: TextAlign.start,
                   ),
@@ -149,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           Container(
-            margin: const EdgeInsets.only(bottom: 50.0),
+            margin: const EdgeInsets.only(bottom: 40.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -466,10 +470,24 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Servicios',
-                style: CustomStyles.linkText,
+              Container(
+                margin: const EdgeInsets.only(left: 20.0, bottom: 10.0),
+                child: Text(
+                  'Servicios',
+                  style: CustomStyles.linkText,
+                ),
               ),
+              SizedBox(
+                height: 200.0,
+                child: ListView.builder(
+                    padding: const EdgeInsets.all(0),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: serviceListResponse.length,
+                    itemBuilder: (context, int index) {
+                      return _createServicesView(
+                          context, serviceListResponse[index]);
+                    }),
+              )
             ],
           )
         ],
@@ -477,8 +495,53 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _createServicesView(
+      BuildContext context, ServiceListResponse service) {
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, '/serviceDetail', arguments: service.id);
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 15.0),
+        child: Stack(alignment: Alignment.center, children: [
+          Container(
+              width: 212.0,
+              height: 215.0,
+              decoration: BoxDecoration(
+                  color: CustomStyles.primaryColor,
+                  borderRadius: BorderRadius.circular(25.0))),
+          Container(
+            width: 190.0,
+            height: 185.0,
+            decoration: BoxDecoration(
+                color: CustomStyles.whiteSemiTransparent,
+                borderRadius: BorderRadius.circular(25.0)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(bottom: 15.0),
+                  child: Text(
+                    service.nombre,
+                    style: CustomStyles.cardTitleText,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(25.0),
+                  child: Image.network(
+                    service.foto,
+                    width: 190.0,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+
   String _dateTimeFormatter(DateTime dateTime) {
-    initializeDateFormatting();
     return DateFormat('EEEE, d MMM', 'es_ES').format(dateTime);
   }
 }
