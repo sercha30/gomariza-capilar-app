@@ -293,6 +293,247 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Obtener todas las citas calendario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/allAppointmentsCalendar",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"allAppointmentsCalendar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener detalle cita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/citaDetail/a9fe0f58-80eb-175f-8180-eba1d75f0003",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"citaDetail",
+								"a9fe0f58-80eb-175f-8180-eba1d75f0003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar cita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idServicio\":\"a9fe0f58-80eb-175f-8180-eba1d75f0005\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/editCita/a9fe0f58-80eb-175f-8180-eba1d75f0003",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"editCita",
+								"a9fe0f58-80eb-175f-8180-eba1d75f0003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/deleteCita/a9fe0f58-80eb-175f-8180-eba1d75f0003",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"deleteCita",
+								"a9fe0f58-80eb-175f-8180-eba1d75f0003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener citas disponibles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/freeAppointmentsCalendar?idServicio=a9fe0f58-80eb-175f-8180-eba1d75f0002&monthNumber=6",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"freeAppointmentsCalendar"
+							],
+							"query": [
+								{
+									"key": "idServicio",
+									"value": "a9fe0f58-80eb-175f-8180-eba1d75f0002"
+								},
+								{
+									"key": "monthNumber",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"servicioId\":\"a9fe0f58-80eb-175f-8180-eba1d75f0002\",\r\n    \"fechaCita\":\"2022-06-22T14:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/newAppointment",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"newAppointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener todas las citas paginas y con filtros",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseURL}}/cita/allAppointmentsPaged?fechaCita=&idServicio=&idCliente=",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"cita",
+								"allAppointmentsPaged"
+							],
+							"query": [
+								{
+									"key": "fechaCita",
+									"value": ""
+								},
+								{
+									"key": "idServicio",
+									"value": ""
+								},
+								{
+									"key": "idCliente",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -322,6 +563,34 @@
 							"path": [
 								"servicio",
 								"serviciosList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener detalle servicio",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{apiBaseURL}}/servicio/a9fe0f58-80eb-175f-8180-eba1d75f0002",
+							"host": [
+								"{{apiBaseURL}}"
+							],
+							"path": [
+								"servicio",
+								"a9fe0f58-80eb-175f-8180-eba1d75f0002"
 							]
 						}
 					},
